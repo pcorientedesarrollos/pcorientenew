@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 //Rutas
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,11 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ClientesComponent } from './shared/clientes/clientes.component';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 
+//Services 
+import { ClientesService } from './services/clientes.service';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +27,12 @@ import { DashboardComponent } from './shared/dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ClientesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
