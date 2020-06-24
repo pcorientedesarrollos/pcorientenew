@@ -1,11 +1,12 @@
 import { Request, Response } from 'express'
 import { connect } from '../database'
 import { Cliente } from '../interface/cliente'
+import { Telefono } from '../interface/telefono';
 
 export async function getClientes(req: Request, res: Response): Promise<Response | void> {
     try {
         const conn = await connect()
-        const clientes = await conn.query('SELECT * FROM clientes ')
+        const clientes = await conn.query('SELECT * FROM clientes ORDER BY id DESC')
         return res.json(clientes[0])
     } catch (e) {
         console.log(e)
@@ -49,4 +50,14 @@ export async function updateCliente(req: Request, res: Response) {
         message: 'Archivo modificado'
     })
 
+}
+
+export async function getTelefonosCliente(req: Request, res: Response){
+    try {
+        const conn = await connect()
+        const telefonos = await conn.query('SELECT * FROM telefonos_cliente ')
+        return res.json(telefonos[0])
+    } catch (e) {
+        console.log(e)
+    }
 }

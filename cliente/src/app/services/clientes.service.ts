@@ -11,9 +11,11 @@ export class ClientesService {
 
   getClientes(){
    const result = this.http.get(`${this.API_URI}/clientes`)
-   console.log(result) 
    return result
   }
-
+  getTelefonosClientes(){
+    const resultado = this.http.get(`${this.API_URI}/telefonos`)
+    return resultado
+  }
 
 }

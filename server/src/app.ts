@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import IndexRoutes from './routes/index.routes'
 import PostRoutes from './routes/post.routes'
 import ClientesRoutes from './routes/clientes.routes'
+import TelefonosRoutes from './routes/telefonos.routes'
 
 
 export class App {
@@ -36,6 +37,7 @@ export class App {
         this.app.use(IndexRoutes)
         this.app.use('/posts', PostRoutes)
         this.app.use('/clientes', ClientesRoutes)
+        this.app.use('/telefonos', TelefonosRoutes)
     }
 
     listen() {
