@@ -1,0 +1,130 @@
+<section>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Producto</h3>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="guardarProducto(formNuevoProducto)" #formNuevoProducto="ngForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <div class="form-check ">
+                                <p>&nbsp;</p>
+                                <input class="form-check-input" type="checkbox" id="serv"
+                                    [(ngModel)]="producto.servicio" name="servicio" [checked]="producto.servicio"
+                                    value="'1'">
+                                <label class="form-check-label" for="serv">
+                                    Servicio
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3" *ngIf="producto.servicio">
+                            <div class="form-check">
+                                <p>&nbsp;</p>
+                                <input class=" form-check-input" type="checkbox" id="servCliente"
+                                    [(ngModel)]="producto.servicioCliente" name="servicioCliente"
+                                    [checked]="producto.servicioCliente" value="'1'">
+                                <label class="form-check-label" for="servCliente">
+                                    Servicio cliente
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row" *ngIf="!producto.servicio">
+                        <div class="form-group col-md-6">
+                            <label for="prov">Proveedor</label>
+                            <ng-select [items]="listaProveedores" bindValue="id" bindLabel="nombre"
+                                placeholder="Selecciona una opción" [(ngModel)]="producto.idProveedor" name="proveedor">
+                            </ng-select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="codProv">Código del proveedor</label>
+                            <input type="text" class="form-control" id="codProv" [(ngModel)]="producto.codigoProveedor"
+                                name="codigoProveedor">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="condInt">Código interno</label>
+                            <input type="text" class="form-control" id="condInt" [(ngModel)]="producto.codigo"
+                                name="codigo">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="nomProd">Nombre del producto</label>
+                            <input type="text" class="form-control" id="nomProd" [(ngModel)]="producto.nombre"
+                                name="nombre">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomProd">Descripción</label>
+                        <textarea class="form-control" id="nomProd" [(ngModel)]="producto.descripcion"
+                            name="descripcion"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            <label for="condInt">Costo</label>
+                            <input type="text" class="form-control" id="condInt" [(ngModel)]="producto.costo"
+                                name="costo">
+                        </div>
+                        <div class="form-group col-md">
+                            <label for="nomProd">Importe</label>
+                            <input disabled="disabled" type="text" class="form-control" id="nomProd"
+                                [(ngModel)]="producto.importe" name="importe">
+                        </div>
+                        <div class="form-group col-md">
+                            <label for="condInt">Costo compra</label>
+                            <input type="text" class="form-control" id="condInt">
+                        </div>
+                        <div class="form-group col-md">
+                            <label for="utl">Utilidad</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="utl" [(ngModel)]="producto.utilidad"
+                                    name="utilidad" (change)="calcularPrecioPublico()">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md">
+                            <label for="condInt">Precio público</label>
+                            <input type="text" class="form-control" id="condInt" [(ngModel)]="producto.precioPublico"
+                                name="precioPublico">
+                        </div>
+                        <div class="form-group col-md" *ngIf="!producto.servicio">
+                            <label for="nomProd">Existencia</label>
+                            <input type="text" class="form-control" id="nomProd" [(ngModel)]="producto.existencia"
+                                name="existencia">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="condInt">Unidad</label>
+                            <input type="text" class="form-control" id="condInt" [(ngModel)]="producto.unidad"
+                                name="unidad" placeholder="Pieza/Servicio/No aplica">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <p>&nbsp;</p>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                    class="custom-control-input" [(ngModel)]="producto.tipo" value="venta">
+                                <label class="custom-control-label" for="customRadioInline1">Venta</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <p>&nbsp;</p>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                    class="custom-control-input" [(ngModel)]="producto.tipo" value="almacen">
+                                <label class="custom-control-label" for="customRadioInline2">Sólo almacén</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <p>&nbsp;</p>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
