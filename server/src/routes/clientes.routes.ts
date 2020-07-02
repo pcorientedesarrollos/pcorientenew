@@ -6,11 +6,9 @@ router.route('/')
     .get(getClientes)
     .post(createCliente)
 
-
 router.route('/:postId')
     .get(getCliente)
     .delete(deleteCliente)
     .put(updateCliente)
-
 
 export default router

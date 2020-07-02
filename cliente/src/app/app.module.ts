@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 //Rutas
 import { AppRoutingModule } from './app-routing.module';
@@ -9,13 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+
 import { ClientesComponent } from './shared/clientes/clientes.component';
+import { NuevoClienteComponent } from './shared/nuevo-cliente/nuevo-cliente.component';
+
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
 
-//Services 
+//Services
 import { ClientesService } from './services/clientes.service';
-
-
 
 @NgModule({
   declarations: [
@@ -23,16 +25,12 @@ import { ClientesService } from './services/clientes.service';
     HeaderComponent,
     FooterComponent,
     ClientesComponent,
-    DashboardComponent
+    DashboardComponent,
+    NuevoClienteComponent
+
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [
-    ClientesService
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
+  providers: [ClientesService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

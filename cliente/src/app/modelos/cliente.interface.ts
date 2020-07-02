@@ -9,7 +9,7 @@ export interface Cliente {
     municipio?: string;
     pais?: string;
     correo?: string;
-    registro?: Date;
+    registro?: String;
     especial?: string;
-    telefonos?: [];
+    telefonos?: string;
 }

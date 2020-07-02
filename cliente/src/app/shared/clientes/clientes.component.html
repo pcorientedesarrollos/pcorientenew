@@ -9,13 +9,17 @@
         <!-- <pre>
           {{ this.clientes | json }}
       </pre> -->
-      <div class="row">
-        <div class="col-md-3 offset-md-9">
-          <!-- <button type="button" class="btn btn-light">Agregar</button> -->
-          <button type="button" class="btn btn-primary btn-lg btn-block">Agregar</button>
-
+        <div class="row">
+          <div class="col-md-2 offset-md-10" align="center">
+            <p></p>
+            <a
+              class="btn btn-info"
+              [routerLink]="['/nuevoCliente']"
+            >
+              Agregar
+            </a>
+          </div>
         </div>
-      </div>
         <div class="card-body">
           <table id="example2" class="table table-bordered table-hover">
             <thead>
@@ -24,15 +28,23 @@
                 <th>Fecha Registro</th>
                 <th>Nombre</th>
                 <th>Telefono</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
-              <tr
-                *ngFor="let cliente of clientes">
-                <td> {{cliente.id}}</td>
-                <td> {{cliente.registro | date:'dd/MM/yyyy'}}</td>
-                <td> {{cliente.nombre}}</td>
-                <td>{{cliente.numeroP}}</td>
+              <tr *ngFor="let cliente of clientes" align="center">
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.registro | date: "dd/MM/yyyy" }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.numeroP }}</td>
+                <td ><a [routerLink]="['/editarCliente', cliente.id]"><i class="fas fa-edit"></i></a>
+                </td>
+                <td>
+                  <svg type = "button" (click)='ELiminarCliente(cliente.id)' width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="red" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                  </svg>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -40,12 +52,10 @@
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-  
+
       <!-- /.card -->
     </div>
     <!-- /.col -->
   </div>
   <!-- /.row -->
 </section>
-
-
