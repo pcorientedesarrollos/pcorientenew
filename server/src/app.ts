@@ -6,7 +6,8 @@ import IndexRoutes from './routes/index.routes'
 import PostRoutes from './routes/post.routes'
 import ClientesRoutes from './routes/clientes.routes'
 import TelefonosRoutes from './routes/telefonos.routes'
-
+import ProductosRoutes from './routes/productos.routes'
+import ProveedoresRoutes from './routes/proveedores.routes'
 
 export class App {
     private app: Application
@@ -38,6 +39,8 @@ export class App {
         this.app.use('/posts', PostRoutes)
         this.app.use('/clientes', ClientesRoutes)
         this.app.use('/telefonos', TelefonosRoutes)
+        this.app.use('/productos', ProductosRoutes)
+        this.app.use('/proveedores', ProveedoresRoutes)
     }
 
     listen() {
