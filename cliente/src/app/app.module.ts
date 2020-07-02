@@ -1,11 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
-=======
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
->>>>>>> origin/master
 
 //Rutas
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +12,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 
 import { ClientesComponent } from './shared/clientes/clientes.component';
 import { NuevoClienteComponent } from './shared/nuevo-cliente/nuevo-cliente.component';
@@ -26,12 +23,9 @@ import { ProductoComponent } from './shared/productos/producto/producto.componen
 
 //Services
 import { ClientesService } from './services/clientes.service';
-<<<<<<< HEAD
-=======
 import { ProductosService } from './services/productos.service';
 import { ProveedoresService } from './services/proveedores.service';
 
->>>>>>> origin/master
 
 @NgModule({
   declarations: [
@@ -40,10 +34,7 @@ import { ProveedoresService } from './services/proveedores.service';
     FooterComponent,
     ClientesComponent,
     DashboardComponent,
-<<<<<<< HEAD
-    NuevoClienteComponent
-
-=======
+    NuevoClienteComponent,
     ProductosComponent,
     ProductoComponent
   ],
@@ -60,10 +51,7 @@ import { ProveedoresService } from './services/proveedores.service';
     ClientesService,
     ProductosService,
     ProveedoresService
->>>>>>> origin/master
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
-  providers: [ClientesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

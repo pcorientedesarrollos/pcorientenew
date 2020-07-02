@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
   { path: 'nuevoCliente', component: NuevoClienteComponent },
   { path: 'editarCliente/:id', component: NuevoClienteComponent },
-  { path: '**', pathMatch: 'full', redirectTo: '' },
   { path: 'productos', component: ProductosComponent },
   { path: 'producto/:idProducto', component: ProductoComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' },
